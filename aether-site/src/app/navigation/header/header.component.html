@@ -1,20 +1,12 @@
-<mat-toolbar color="primary">
-	<div fxHide.gt-xs>
-		<button mat-icon-button (click)="onToggleSidenav()">
-			<mat-icon>menu</mat-icon>
-		</button>
-	</div>
-	<div>
-		<a routerLink="/home">Home</a>
-	</div>
-	<div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-		<ul fxLayout fxLayoutGap="15px" class="navigation-items">
-			<li>
-				<a routerLink="/owner">Owner Actions</a>
-			</li>
-			<li>
-				<a routerLink="/account">Account Actions</a>
-			</li>
-		</ul>
-	</div>
-</mat-toolbar>
+<mat-grid-list cols="8" rowHeight="100px">
+	<mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+	<mat-grid-tile
+		*ngFor="let menu of menuItems"
+		[colspan]="menu.cols"
+		[rowspan]="menu.rows">
+	    <div class="button-row">
+			<a mat-button href="https://www.google.com/" target="_blank">{{menu.text}}</a>
+		</div>
+	</mat-grid-tile>
+	<mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+</mat-grid-list>
